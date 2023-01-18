@@ -21,7 +21,12 @@ import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 function Rating({ rating, numReviews }) {
   return (
-    <Box border={"0px solid red"} display="flex" alignItems="center">
+    <Box
+      border={"0px solid red"}
+      display="flex"
+      alignItems="center"
+      justifyContent={"center"}
+    >
       {Array(5)
         .fill("")
         .map((_, i) => {
@@ -30,16 +35,19 @@ function Rating({ rating, numReviews }) {
             return (
               <BsStarFill
                 key={i}
-                style={{ marginLeft: "1" }}
+                style={{ marginLeft: "1", width: "13px" }}
                 color={i < rating ? "teal.500" : "gray.300"}
               />
             );
           }
           if (roundedRating - i === 0.5) {
-            return <BsStarHalf key={i} style={{ marginLeft: "1" }} />;
+            return (
+              <BsStarHalf key={i} style={{ marginLeft: "1", width: "13px" }} />
+            );
           }
-          return <BsStar key={i} style={{ marginLeft: "1" }} />;
+          return <BsStar key={i} style={{ marginLeft: "1", width: "13px" }} />;
         })}
+
       <Box as="span" ml="2" color="gray.600" fontSize="sm">
         {numReviews} review{numReviews > 1 && "s"}
       </Box>
@@ -55,6 +63,7 @@ function ShopBootSaleCard({
   rating,
   numReviews,
   details,
+  sale,
 }) {
   return (
     <Flex
@@ -99,7 +108,7 @@ function ShopBootSaleCard({
                 fontSize="l"
                 color="#0073ae"
               >
-                Sale
+                {sale}
               </Badge>
             )}
           </Box>
@@ -118,7 +127,7 @@ function ShopBootSaleCard({
               {price}
             </Box>
 
-            <Rating rating={rating} numReviews={numReviews} />
+            <Rating numReviews={numReviews} rating={rating} />
           </Box>
         </Box>
       </Box>
