@@ -1,12 +1,22 @@
 import React from "react";
 import Navbar from "./Navbar";
-import { Box, Image, Link } from "@chakra-ui/react";
+import { Box, Button, Image, Link } from "@chakra-ui/react";
 import { Flex, Spacer, Text, Heading } from "@chakra-ui/react";
 import ShopBootSaleCard from "./ShopBootSaleCard";
+import REWARDS from "./REWARDS.png";
+
+const brandImges = [
+  "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/tests/hp-bts-redesign/brands/hp_logo_nike.png",
+  "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/tests/hp-bts-redesign/brands/hp_logo_converse.png",
+  "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/fall/logos/hp_logo_heydude.png",
+  "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/fall/logos/hp_logo_bearpawupdate.png",
+  "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/fall/logos/hp_logo_drmartens.png",
+  "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/fall/logos/hp_logo_timberland.png",
+];
 
 const LandingPage = () => {
   return (
-    <div>
+    <div color="gray">
       <Navbar />
       <h1>This is home page</h1>
       <Box
@@ -69,10 +79,14 @@ const LandingPage = () => {
         </Link>
       </Box>
       <Heading
+        margin={"auto"}
         marginTop="3%"
         fontFamily="sans-serif"
         fontWeight="600"
         fontSize="22px"
+        borderBottom={"3px solid black"}
+        paddingBottom="5px"
+        width="200px"
       >
         Shop By Catagory
       </Heading>
@@ -160,10 +174,15 @@ const LandingPage = () => {
 
       <Box>
         <Heading
+          margin={"auto"}
+          marginTop="2%"
           fontFamily="sans-serif"
           fontWeight="600"
           fontSize="22px"
-          mb={"5%"}
+          borderBottom={"3px solid black"}
+          paddingBottom="5px"
+          width="230px"
+          mb={"3%"}
         >
           Shop the Boot Sale
         </Heading>
@@ -181,6 +200,7 @@ const LandingPage = () => {
             rating={"4.5"}
             numReviews={"37"}
             details={"Women Zalava Combat boot"}
+            sale={"Sale"}
           />
           <ShopBootSaleCard
             isNew={true}
@@ -190,6 +210,7 @@ const LandingPage = () => {
             rating={"4.5"}
             numReviews={"37"}
             details={"Women Zalava Combat boot"}
+            sale={"Sale"}
           />
           <ShopBootSaleCard
             isNew={true}
@@ -199,6 +220,7 @@ const LandingPage = () => {
             rating={"4.5"}
             numReviews={"37"}
             details={"Women Zalava Combat boot"}
+            sale={"Sale"}
           />
           <ShopBootSaleCard
             isNew={true}
@@ -208,6 +230,7 @@ const LandingPage = () => {
             rating={"4.5"}
             numReviews={"37"}
             details={"Women Zalava Combat boot"}
+            sale={"Sale"}
           />
           <ShopBootSaleCard
             isNew={true}
@@ -217,42 +240,116 @@ const LandingPage = () => {
             rating={"2.5"}
             numReviews={"12"}
             details={"Women Ahead Combat Bootie"}
+            sale={"Sale"}
           />
         </Box>
       </Box>
 
       <br />
       <br />
-      <div>
+
+      {/*Style Up. Spend Down.*/}
+
+      <Box
+        style={{
+          border: "0px solid red",
+        }}
+        display={{ base: "grid", md: "flex" }}
+        margin={{ base: "auto", md: "auto" }}
+        width={{ base: "90%", md: "50%" }}
+        gridTemplateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4,1fr)" }}
+        gridTemplateRows={{ base: "repeat(2, 200px)" }}
+        justifyContent={{ base: "space-around", md: "space-around" }}
+      >
         <Box
-          border={"0px solid black"}
-          display={{ base: "grid", md: "flex" }}
-          w={{ base: "100%", md: "50%" }}
-          margin="auto"
-          justifyContent={"space-around"}
+          border={"0px solid red"}
+          width="150px"
+          height={"140px"}
+          borderRadius="50%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bgImage={
+            "url(https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_performance.jpg?h=148&iar=0&w=150&hash=DE7D0EB08472865D432ADBEEFCBEAE84)"
+          }
         >
-          <img
-            style={{ borderRadius: "50%" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_performance.jpg?h=148&iar=0&w=150&hash=DE7D0EB08472865D432ADBEEFCBEAE84"
-            alt="#"
-          />
-          <img
-            style={{ borderRadius: "50%" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_nike.jpg?h=148&iar=0&w=150&hash=59E5593AD4402D0195C45F308E95FFA7"
-            alt="#"
-          />
-          <img
-            style={{ borderRadius: "50%" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_womens-boots.jpg?h=148&iar=0&w=150&hash=EC406ACA0256DB19D0BE7D1416C7C262"
-            alt="#"
-          />
-          <img
-            style={{ borderRadius: "50%" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_kids-clearance.jpg?h=148&iar=0&w=150&hash=9DDB7D9E793FD54571D34D22DEB82DA1"
-            alt="#"
-          />
+          <Text color={"white"}>
+            Performance{" "}
+            <span>
+              <br />
+              Shoes Under
+            </span>
+            <span>
+              {" "}
+              <br /> $ 50
+            </span>
+          </Text>
         </Box>
-      </div>
+        <Box
+          border={"0px solid red"}
+          width="150px"
+          height={"140px"}
+          borderRadius="50%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bgImage={
+            "url(https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_nike.jpg?h=148&iar=0&w=150&hash=59E5593AD4402D0195C45F308E95FFA7)"
+          }
+        >
+          <Text color={"white"}>
+            Nike{" "}
+            <span>
+              <br />
+              Clearance
+            </span>
+          </Text>
+        </Box>
+        <Box
+          border={"0px solid red"}
+          width="150px"
+          height={"140px"}
+          borderRadius="50%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bgImage={
+            "url(https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_performance.jpg?h=148&iar=0&w=150&hash=DE7D0EB08472865D432ADBEEFCBEAE84)"
+          }
+        >
+          <Text color={"white"}>
+            Women's{" "}
+            <span>
+              <br />
+              Boots Under
+            </span>
+            <span>
+              {" "}
+              <br /> $ 50
+            </span>
+          </Text>
+        </Box>
+        <Box
+          border={"0px solid red"}
+          width="150px"
+          height={"140px"}
+          borderRadius="50%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bgImage={
+            "url(https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/price-bubbles/wk48_pricebubbles_kids-clearance.jpg?h=148&iar=0&w=150&hash=9DDB7D9E793FD54571D34D22DEB82DA1)"
+          }
+        >
+          <Text color={"white"}>
+            Kids{" "}
+            <span>
+              <br />
+              Clerance
+            </span>
+          </Text>
+        </Box>
+      </Box>
       <br />
       <br />
       <Box
@@ -262,12 +359,393 @@ const LandingPage = () => {
         // border={"1px solid red"}
         width={{ base: "100%", md: "80%" }}
         margin={"auto"}
+        border={"0px solid black"}
       >
         <Image
           height={{ base: "200px", md: "80%" }}
           src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/post-holiday/1-story/wk51_011523_1_story_single_courtsneakers.jpg"
           alt="Comfort"
         />
+        <br />
+        <Text>Up your sneaker game with fresh color combos.</Text>
+      </Box>
+      <br />
+      <br />
+
+      {/*SHOP COURT SNEAKERS.*/}
+
+      <Box>
+        <Heading
+          margin={"auto"}
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="22px"
+          mb={"5%"}
+          borderBottom={"3px solid black"}
+          width="280px"
+        >
+          SHOP COURT SNEAKERS
+        </Heading>
+        <Box
+          display={{ md: "flex" }}
+          width={{ xl: "70%" }}
+          gap={"30px"}
+          margin="auto"
+        >
+          <Box>
+            <Image
+              width={"100%"}
+              src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/post-holiday/2-story/wk51_011523_story_2_a_spotlight.jpg"
+              alt="#"
+            />
+            <Heading
+              margin={"auto"}
+              fontFamily="sans-serif"
+              fontWeight="600"
+              fontSize="22px"
+              mb={"5%"}
+              mt={"3%"}
+              width="280px"
+            >
+              Style Spotlight
+            </Heading>
+            <Text mb={"5%"} mt={"3%"}>
+              Hot new loafers from Circus NY to wear now and later.
+            </Text>
+            <Heading
+              margin={"auto"}
+              fontFamily="sans-serif"
+              fontWeight="600"
+              fontSize="16px"
+              mb={"5%"}
+              borderBottom={"3px solid black"}
+              width="145px"
+            >
+              SHOP THIS STYLE
+            </Heading>
+          </Box>
+          <Box>
+            <Image
+              width={"100%"}
+              src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/post-holiday/2-story/wk51_011523_story_2_b_platforms.jpg"
+              alt="#"
+            />
+            <Heading
+              margin={"auto"}
+              fontFamily="sans-serif"
+              fontWeight="600"
+              fontSize="22px"
+              mb={"5%"}
+              mt={"3%"}
+              width="280px"
+            >
+              Make a Statement
+            </Heading>
+            <Text mb={"5%"} mt={"3%"}>
+              Show off a look all your own in Vans sneakers.
+            </Text>
+            <Heading
+              margin={"auto"}
+              fontFamily="sans-serif"
+              fontWeight="600"
+              fontSize="16px"
+              mb={"5%"}
+              borderBottom={"3px solid black"}
+              width="95px"
+            >
+              SHOP VANS
+            </Heading>
+          </Box>
+        </Box>
+      </Box>
+
+      <br />
+
+      {/*Gear Up for the New Year*/}
+
+      <br />
+
+      <Box
+        display={{ base: "grid", xl: "flex" }}
+        width="80%"
+        gap={"20px"}
+        margin="auto"
+      >
+        <Box border={"0px solid red"}>
+          <br />
+          <Text fontSize={"22px"} fontWeight={"600"}>
+            Gear Up for the New Year
+          </Text>
+          <br />
+          <Text w={"250px"} margin="auto">
+            Start the year off right with all the hottest looks.
+          </Text>
+          <br />
+
+          <Image
+            mt={"50px"}
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/trend/wk49_010123_hp_trend_mini_hub_3_a_active.jpg"
+            alt="#"
+          />
+        </Box>
+        <Box border={"0px solid red"}>
+          <Image
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/trend/wk49_010123_hp_trend_mini_hub_3_b_boots.jpg"
+            alt="#"
+          />
+        </Box>
+        <Box border={"0px solid red"}>
+          <Image
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/holiday/trend/wk49_010123_hp_trend_mini_hub_3_c_sneaker.jpg"
+            alt="#"
+          />
+        </Box>
+      </Box>
+
+      <br />
+
+      {/*SHOP COURT SNEAKERS.*/}
+
+      <br />
+
+      <Box
+        borderWidth="1px"
+        borderRadius="0px"
+        overflow="hidden"
+        // border={"1px solid red"}
+        width={{ base: "100%", md: "80%" }}
+        margin={"auto"}
+        border={"0px solid black"}
+      >
+        <Image
+          height={{ base: "200px", md: "80%" }}
+          src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/post-holiday/1-story/wk51_011523_1_story_single_getawayshop_new.jpg"
+          alt="Comfort"
+        />
+        <br />
+        <Text>Get ready for a warm-weather escape with top vacay picks.</Text>
+        <br />
+        <Heading
+          margin={"auto"}
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="22px"
+          mb={"5%"}
+          borderBottom={"3px solid black"}
+          width="200px"
+        >
+          GETAWAY STYLES
+        </Heading>
+      </Box>
+
+      <br />
+
+      {/*Best Sellers*/}
+
+      <br />
+
+      <Box>
+        <Heading
+          margin={"auto"}
+          marginTop="2%"
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="22px"
+          //   borderBottom={"3px solid black"}
+          paddingBottom="5px"
+          width="230px"
+          mb={"3%"}
+        >
+          Best Sellers
+        </Heading>
+        <Box
+          display={{ base: "grid", md: "flex" }}
+          //   border="1px solid red"
+          width={{ md: "80%" }}
+          margin="auto"
+        >
+          <ShopBootSaleCard
+            isNew={true}
+            sale="Online Only"
+            name="Crocks"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/74/30/7/74307_pair_medium.jpg"
+            price={"49.99"}
+            rating={"4.5"}
+            numReviews={"377"}
+            details={"Classic Clogs"}
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Nike"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/98/23/1/98231_pair_medium.jpg"
+            price={"89.99"}
+            rating={"4.8"}
+            numReviews={"14"}
+            details={"Women Air Max Excess Sneakers"}
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Crocks"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/38/20/8/38208_pair_medium.jpg"
+            price={"74.99"}
+            rating={"5"}
+            numReviews={"20"}
+            details={"Women Zalava Combat Crocks"}
+            sale="New"
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Nike"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/32/65/7/32657_pair_medium.jpg"
+            price={"79.99"}
+            rating={"3.5"}
+            numReviews={"13"}
+            details={"Women Air Max Excess Sneakers"}
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Nike"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/73/59/2/73592_pair_medium.jpg"
+            price={"54.99"}
+            rating={"2.5"}
+            numReviews={"12"}
+            details={"Women Combat Alta Bootie"}
+            sale="Clerance"
+          />
+        </Box>
+      </Box>
+
+      {/*Gotta-Have Brands*/}
+
+      <Heading
+        margin={"auto"}
+        marginTop="0%"
+        fontFamily="sans-serif"
+        fontWeight="600"
+        fontSize="22px"
+        //   borderBottom={"3px solid black"}
+        paddingBottom="5px"
+        width="230px"
+        mb={"1%"}
+        color="#333f48"
+      >
+        Gotta-Have Brands
+      </Heading>
+      <Box
+        display={{ base: "grid", md: "flex" }}
+        border={"0px solid red"}
+        margin={"auto"}
+        gap={"5px"}
+        width={{ base: "90%", md: "70%" }}
+        gridTemplateColumns={{ base: "repeat(2, 1fr)", md: "repeat(4,1fr)" }}
+        gridTemplateRows={{ base: "repeat(3, 200px)" }}
+        justifyContent={{ base: "space-around", md: "space-around" }}
+      >
+        {brandImges.map((el) => (
+          <Image width={"180px"} src={el} alt="#" />
+        ))}
+      </Box>
+      <br />
+      {/* New Arrivals*/}
+
+      <Box>
+        <Heading
+          margin={"auto"}
+          marginTop="2%"
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="22px"
+          //   borderBottom={"3px solid black"}
+          paddingBottom="5px"
+          width="230px"
+          mb={"3%"}
+        >
+          Best Sellers
+        </Heading>
+        <Box
+          display={{ base: "grid", md: "flex" }}
+          //   border="1px solid red"
+          width={{ md: "80%" }}
+          margin="auto"
+        >
+          <ShopBootSaleCard
+            isNew={true}
+            sale="New"
+            name="Crocks"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/38/20/8/38208_pair_medium.jpg"
+            price={"49.99"}
+            rating={"4.5"}
+            numReviews={"377"}
+            details={"Classic Clogs"}
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Nike"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/38/38/2/38382_pair_medium.jpg"
+            price={"89.99"}
+            rating={"4.8"}
+            numReviews={"14"}
+            details={"Women Air Max Excess Sneakers"}
+            sale={"Echo-Concious"}
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Crocks"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/38/38/3/38383_pair_medium.jpg"
+            price={"74.99"}
+            rating={"5"}
+            numReviews={"20"}
+            details={"Women Zalava Combat Crocks"}
+            sale="Echo-Concious"
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Nike"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/38/30/7/38307_pair_medium.jpg"
+            price={"79.99"}
+            rating={"3.5"}
+            numReviews={"13"}
+            details={"Women Air Max Excess Sneakers"}
+            sale={"New"}
+          />
+          <ShopBootSaleCard
+            isNew={true}
+            name="Nike"
+            imageURL="https://www.famousfootwear.com/blob/product-images/20000/38/30/8/38308_pair_medium.jpg"
+            price={"54.99"}
+            rating={"2.5"}
+            numReviews={"12"}
+            details={"Women Combat Alta Bootie"}
+            sale="New"
+          />
+        </Box>
+      </Box>
+
+      <Box
+        display={{ base: "grid", md: "flex" }}
+        width={{ base: "100%", md: "80%" }}
+        margin="auto"
+        border={"0px solid green"}
+        p={{ base: "0", md: "30" }}
+      >
+        <Image height={{ base: "150%", xl: "40%" }} src={REWARDS} alt="#" />
+      </Box>
+      <br />
+      <br />
+      <Box>
+        <Heading
+          margin={"auto"}
+          marginTop="2%"
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="22px"
+          //   borderBottom={"3px solid black"}
+          paddingBottom="5px"
+          width="280px"
+          mb={"3%"}
+        >
+          We Love To See Your Style
+        </Heading>
       </Box>
     </div>
   );
