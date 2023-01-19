@@ -17,6 +17,7 @@ import {
   InputGroup,
   Input,
   InputRightElement,
+  Image,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 
@@ -64,10 +65,9 @@ export default function Navbar() {
             color={useColorModeValue("gray.800", "white")}
             marginLeft={{ base: "none", md: "5%" }}
           >
-            <img
+            <Image
               width={"200px"}
-              //   marginLeft={{ base: "none", md: "100px" }}
-              //   style={{ marginLeft: "100px" }}
+              marginLeft={{ base: "none", md: "100px" }}
               src="https://raw.githubusercontent.com/udaykashyap/punchy-crayon-507/main/comfort-footwear/src/Footwear.png"
               alt="#"
             />
@@ -135,6 +135,7 @@ const DesktopNav = () => {
                 fontWeight={500}
                 color={linkColor}
                 //marginTop="60px"
+
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,
@@ -295,6 +296,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "Women",
+    href: "/women",
     children: [
       {
         label: "Explore Design Work",
@@ -310,6 +312,8 @@ const NAV_ITEMS = [
   },
   {
     label: "Men",
+    href: "/men",
+
     children: [
       {
         label: "Explore Design Work",
@@ -325,6 +329,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Kids",
+    href: "/kids",
     children: [
       {
         label: "Explore Design Work",
@@ -340,6 +345,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Brands",
+    href: "/brands",
     children: [
       {
         label: "Job Board",
@@ -355,6 +361,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Accessories",
+    href: "/accessories",
     children: [
       {
         label: "Explore Design Work",
@@ -370,6 +377,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Sale",
+    href: "/sale",
     children: [
       {
         label: "Explore Design Work",

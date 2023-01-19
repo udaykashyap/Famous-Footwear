@@ -4,6 +4,7 @@ import { Box, Button, Image, Link } from "@chakra-ui/react";
 import { Flex, Spacer, Text, Heading } from "@chakra-ui/react";
 import ShopBootSaleCard from "./ShopBootSaleCard";
 import REWARDS from "./REWARDS.png";
+import Footer from "./Footer";
 
 const brandImges = [
   "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/tests/hp-bts-redesign/brands/hp_logo_nike.png",
@@ -17,7 +18,7 @@ const brandImges = [
 const LandingPage = () => {
   return (
     <div color="gray">
-      <Navbar />
+      {/* <Navbar /> */}
       <h1>This is home page</h1>
       <Box
         borderWidth="1px"
@@ -56,11 +57,13 @@ const LandingPage = () => {
         width={{ base: "100%", md: "80%" }}
         margin={"auto"}
       >
-        <Image
-          height={{ base: "200px", md: "80%" }}
-          src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/post-holiday/hero/wk49_010123_hp_hero_desktop_newarrivals.jpg"
-          alt="Comfort"
-        />
+        <Link to="/">
+          <Image
+            height={{ base: "200px", md: "80%" }}
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/homepage/2022/post-holiday/hero/wk49_010123_hp_hero_desktop_newarrivals.jpg"
+            alt="Comfort"
+          />
+        </Link>
       </Box>
       <Box display={{ md: "none", xl: "none", "2xl": "none" }} marginTop="30px">
         <Heading lineHeight="50px" fontSize={"24px"}>
