@@ -27,35 +27,62 @@ const LandingPage = () => {
   return (
     <div color="gray">
       {/* <Navbar /> */}
-      <h1>This is home page</h1>
+
       <Box
         borderWidth="1px"
         borderRadius="0px"
         overflow="hidden"
         // border={"1px solid red"}
-        width="60%"
+        width={{ base: "100%", xl: "60%" }}
         margin={"auto"}
         border="0px"
+        display={{ base: "grid", xl: "flex" }}
       >
-        <Flex padding="30px" fontFamily="sans-serif" fontWeight="500">
-          <Box width="32%" height="100px" p="4" color="white" bg="#333f48">
+        <Box
+          display={{ base: "grid", xl: "flex" }}
+          padding="30px"
+          width="100%"
+          fontFamily="sans-serif"
+          fontWeight="500"
+          // border={"1px solid blue"}
+          gap="10px"
+        >
+          <Box
+            width={{ base: "100%", xl: "32%" }}
+            height="100px"
+            p="4"
+            color="white"
+            bg="#333f48"
+          >
             Up to 60% off
             <br /> Women's Boot
             <br /> <Link>Shop Now</Link>
           </Box>
           <Spacer />
-          <Box width="32%" height="100px" p="4" color="white" bg="#333f48">
+          <Box
+            width={{ base: "100%", xl: "32%" }}
+            height="100px"
+            p="4"
+            color="white"
+            bg="#333f48"
+          >
             Select Women's Styles <br />
             Under 30$ <br />
             <Link>Shop Now</Link>
           </Box>
           <Spacer />
-          <Box width="32%" height="100px" p="4" color="white" bg="#d50032">
+          <Box
+            width={{ base: "100%", xl: "32%" }}
+            height="100px"
+            p="4"
+            color="white"
+            bg="#d50032"
+          >
             Exclusive App Deals
             <br /> for Rewards Members
             <br /> <Link>Learn More</Link>
           </Box>
-        </Flex>
+        </Box>
       </Box>
       <Box
         borderWidth="1px"
