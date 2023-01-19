@@ -28,6 +28,8 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
+import { Link as RouterLink } from "react-router-dom";
+
 export default function Navbar() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -65,12 +67,14 @@ export default function Navbar() {
             color={useColorModeValue("gray.800", "white")}
             marginLeft={{ base: "none", md: "5%" }}
           >
-            <Image
-              width={"200px"}
-              marginLeft={{ base: "none", md: "100px" }}
-              src="https://raw.githubusercontent.com/udaykashyap/punchy-crayon-507/main/comfort-footwear/src/Footwear.png"
-              alt="#"
-            />
+            <RouterLink to={"/"}>
+              <Image
+                width={"200px"}
+                marginLeft={{ base: "none", md: "100px" }}
+                src="https://raw.githubusercontent.com/udaykashyap/punchy-crayon-507/main/comfort-footwear/src/Footwear.png"
+                alt="#"
+              />
+            </RouterLink>
           </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
@@ -128,7 +132,8 @@ const DesktopNav = () => {
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
             <PopoverTrigger>
-              <Link
+              <RouterLink
+                to={navItem.path}
                 p={2}
                 href={navItem.href ?? "#"}
                 fontSize={"sm"}
@@ -142,7 +147,7 @@ const DesktopNav = () => {
                 }}
               >
                 {navItem.label}
-              </Link>
+              </RouterLink>
             </PopoverTrigger>
 
             {navItem.children && (
@@ -296,7 +301,7 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: "Women",
-    href: "/women",
+    path: "/women",
     children: [
       {
         label: "Explore Design Work",
@@ -312,7 +317,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Men",
-    href: "/men",
+    path: "/men",
 
     children: [
       {
@@ -329,7 +334,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Kids",
-    href: "/kids",
+    path: "/kids",
     children: [
       {
         label: "Explore Design Work",
@@ -345,7 +350,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Brands",
-    href: "/brands",
+    path: "/brands",
     children: [
       {
         label: "Job Board",
@@ -361,7 +366,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Accessories",
-    href: "/accessories",
+    path: "/accessories",
     children: [
       {
         label: "Explore Design Work",
@@ -377,7 +382,7 @@ const NAV_ITEMS = [
   },
   {
     label: "Sale",
-    href: "/sale",
+    path: "/sale",
     children: [
       {
         label: "Explore Design Work",
