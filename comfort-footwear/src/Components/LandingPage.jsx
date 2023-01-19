@@ -1,10 +1,18 @@
 import React from "react";
-import Navbar from "./Navbar";
+
 import { Box, Button, Image, Link } from "@chakra-ui/react";
-import { Flex, Spacer, Text, Heading } from "@chakra-ui/react";
+import {
+  Flex,
+  Spacer,
+  Text,
+  Heading,
+  InputGroup,
+  Input,
+  InputRightElement,
+} from "@chakra-ui/react";
 import ShopBootSaleCard from "./ShopBootSaleCard";
 import REWARDS from "./REWARDS.png";
-import Footer from "./Footer";
+import { Link as RouterLink } from "react-router-dom";
 
 const brandImges = [
   "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/tests/hp-bts-redesign/brands/hp_logo_nike.png",
@@ -749,6 +757,175 @@ const LandingPage = () => {
         >
           We Love To See Your Style
         </Heading>
+      </Box>
+
+      <Box>
+        <Heading
+          margin={"auto"}
+          marginTop="4%"
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="16px"
+          borderBottom={"3px solid black"}
+          paddingBottom="5px"
+          width="200px"
+          mb={"3%"}
+        >
+          GET MORE FRESH INSPO
+        </Heading>
+
+        <hr style={{ width: "80%", margin: "auto" }} />
+        <br />
+        <br />
+        <Heading
+          margin={"auto"}
+          marginTop="2%"
+          fontFamily="sans-serif"
+          fontWeight="600"
+          fontSize="22px"
+          //   borderBottom={"3px solid black"}
+          paddingBottom="5px"
+          width="280px"
+          mb={"3%"}
+        >
+          Shop for:
+        </Heading>
+        <Box
+          width={"20%"}
+          margin="auto"
+          // border={"1px solid red"}
+          display="flex"
+          justifyContent={"space-evenly"}
+        >
+          <Text borderBottom={"3px solid black"}>
+            <RouterLink>WOMEN</RouterLink>
+          </Text>
+          <Text borderBottom={"3px solid black"}>
+            <RouterLink>MEN</RouterLink>
+          </Text>
+          <Text borderBottom={"3px solid black"}>
+            <RouterLink>KIDS</RouterLink>
+          </Text>
+          <Text borderBottom={"3px solid black"}>
+            <RouterLink>SALES</RouterLink>
+          </Text>
+        </Box>
+        <br />
+        <br />
+
+        <Box color={"#333f48"}>
+          <Heading
+            margin={"auto"}
+            marginTop="2%"
+            fontFamily="sans-serif"
+            fontWeight="600"
+            fontSize="22px"
+            //   borderBottom={"3px solid black"}
+            paddingBottom="5px"
+            mb={"3%"}
+          >
+            Find Your Next Pair of Shoes at Comfort Footwear
+          </Heading>
+
+          <InputGroup width={{ base: "100%", md: "30%" }} margin="auto">
+            <Input
+              borderRadius={"0px"}
+              border="2px solid #333f48"
+              placeholder="Email"
+            />
+            <InputRightElement width={"70px"}>
+              <Button bgColor="#333f48" color="white" borderRadius={"0px"}>
+                SignUp
+              </Button>
+            </InputRightElement>
+          </InputGroup>
+        </Box>
+      </Box>
+      <br />
+      <br />
+      <hr />
+      <Box
+        display={{ base: "grid", xl: "flex" }}
+        width={{ base: "100%", xl: "80%" }}
+        margin="auto"
+        padding="20px"
+        fontSize={{ base: "12px", md: "14px" }}
+      >
+        <Box
+          display={"flex"}
+          height="100px"
+          justifyContent="center"
+          alignItems="center"
+          borderRight={{ base: "none", md: "1px solid #333f48" }}
+          padding="10px"
+        >
+          <Image
+            width={{ base: "30px", xl: "50px" }}
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/rewards-images/rewards-refresh-2022/secondary-footer/free_shipping.svg"
+            alt="#"
+          />
+          <Box>
+            <Text>Free Shipping for Members</Text>
+            <Text>Plus, return your purchase to any store, at any time.</Text>
+          </Box>
+        </Box>
+        <hr />
+        <Box
+          display={"flex"}
+          height="100px"
+          justifyContent="center"
+          alignItems="center"
+          borderRight={{ base: "none", md: "1px solid #333f48" }}
+          padding="10px"
+        >
+          <Image
+            width={{ base: "30px", xl: "50px" }}
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/footer/gift-card.svg"
+            alt="#"
+          />
+          <Box>
+            <Text>Free Shipping for Members</Text>
+            <Text>Plus, return your purchase to any store, at any time.</Text>
+          </Box>
+        </Box>
+        <hr />
+        <Box
+          display={"flex"}
+          height="100px"
+          justifyContent="center"
+          alignItems="center"
+          borderRight={{ base: "none", md: "1px solid #333f48" }}
+          padding="10px"
+        >
+          <Image
+            width={{ base: "30px", xl: "50px" }}
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/footer/ff-pickup.svg"
+            alt="#"
+          />
+          <Box>
+            <Text>Free Shipping for Members</Text>
+            <Text>Plus, return your purchase to any store, at any time.</Text>
+          </Box>
+        </Box>
+        <hr />
+
+        <Box
+          display={"flex"}
+          height="100px"
+          justifyContent="center"
+          alignItems="center"
+          padding="10px"
+        >
+          <Image
+            width={{ base: "30px", xl: "50px" }}
+            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/footer/zip.svg"
+            alt="#"
+          />
+          <Box>
+            <Text>Free Shipping for Members</Text>
+            <Text>Plus, return your purchase to any store, at any time.</Text>
+          </Box>
+        </Box>
       </Box>
     </div>
   );

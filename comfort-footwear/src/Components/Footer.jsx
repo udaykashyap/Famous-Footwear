@@ -9,7 +9,7 @@ const Footer = () => {
       borderTop={"4px solid #d50032"}
       color="gray.700"
       bgColor="#f0f0f0"
-      height={{ base: "100%", md: "600px" }}
+      height={{ base: "100%", md: "700px" }}
       //   border="1px solid green"
     >
       {/*////////////////////////////////////////////////////// Social Media ////////////////////////////////////////////////////////*/}
@@ -58,7 +58,7 @@ const Footer = () => {
         margin={"auto"}
         // padding="20px"
         display={{ base: "grid", md: "flex" }}
-        height={{ base: "auto", md: "80%" }}
+        height={{ base: "auto", md: "60%" }}
       >
         <Box
           display={{ base: "grid", md: "flex" }}
@@ -181,7 +181,8 @@ const Footer = () => {
             </Heading>
           </Box>
         </Box>
-
+        <br />
+        <br />
         <Box
           //   border="0px solid blue"
           width={{ base: "100%", xl: "30%" }}
@@ -191,7 +192,7 @@ const Footer = () => {
         >
           <Box display={"flex"} justifyContent="space-evenly">
             <Image
-              width={{ base: "30%", md: "30%" }}
+              width={{ base: "25%", md: "30%" }}
               src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/rewards-images/plcc-double.png?w=+1440&hash=68621878391AE4CD59361AC547BEFA9F"
               alt="#"
             />
@@ -212,6 +213,8 @@ const Footer = () => {
             <Link>Learn More & Apply</Link>
             <Link>Manage Card</Link>
           </Box>
+
+          <br />
           <Box
             display={"flex"}
             justifyContent="space-evenly"
@@ -221,6 +224,8 @@ const Footer = () => {
             <Link>Privacy Policy </Link>|<Link> Terms & Conditions </Link>|
             <Link> Supply Chain Act</Link>
           </Box>
+
+          <br />
           <Box fontSize={"12px"}>
             <Text>© 2023 Caleres, Inc.</Text>
           </Box>
@@ -238,6 +243,7 @@ const Footer = () => {
 
       {/*//////////////////////////////////////////////////////Footer Head end  ////////////////////////////////////////////////////////*/}
 
+      <br />
       <Box
         width={{ base: "100%", xl: "80%" }}
         fontWeight={"300"}
@@ -249,12 +255,14 @@ const Footer = () => {
         that I am at least 18 years old. Note: we collect and use the
         information you provide in accordance with our Privacy Policy.
       </Box>
+
+      <br />
       <Box
         width={"100%"}
         fontWeight={"400"}
         textAlign={{ base: "center", xl: "right" }}
       >
-        Cloned By Uday Kumar Kashyap fw21_0870 @Masai School
+        Created By Uday Kumar Kashyap fw21_0870 @Masai School
       </Box>
     </Box>
   );
