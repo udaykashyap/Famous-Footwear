@@ -6,6 +6,7 @@ import {
   Badge,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { Truncate } from "@primer/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 // const data = {
@@ -48,7 +49,7 @@ function Rating({ rating, numReviews }) {
           return <BsStar key={i} style={{ marginLeft: "1", width: "13px" }} />;
         })}
 
-      <Box as="span" ml="2" color="gray.600" fontSize="sm">
+      <Box as="span" ml="2" color="gray.600" fontSize="14px">
         {numReviews} review{numReviews > 1 && "s"}
       </Box>
     </Box>
@@ -71,14 +72,15 @@ function ShopBootSaleCard({
       alignItems="center"
       justifyContent="center"
       border="0px solid red"
-      height={"400px"}
+      height={"auto"}
       padding={0}
     >
       <Box
         //   bg={useColorModeValue("white", "gray.800")}
-        width="250px"
-        height={{ base: "auto", md: "400px" }}
+        // width="80%"
+        height={{ base: "auto", md: "auto" }}
         border="0px solid red"
+        padding={"10px"}
       >
         {isNew && (
           <Circle
@@ -93,6 +95,8 @@ function ShopBootSaleCard({
         <Image
           border={"0px solid green"}
           width={{ base: "60%", md: "80%" }}
+          height={{ base: "auto", md: "180px" }}
+          objectFit="contain"
           margin="auto"
           src={imageURL}
           alt={`Picture of ${name}`}
@@ -105,23 +109,23 @@ function ShopBootSaleCard({
               <Badge
                 backgroundColor={"white"}
                 px="2"
-                fontSize="l"
+                fontSize="14px"
                 color="#0073ae"
               >
                 {sale}
               </Badge>
             )}
           </Box>
-          <Flex mt="1" justifyContent="center" alignContent="baseline">
-            <Box fontSize="xl" fontWeight="bold" lineHeight="tight" isTruncated>
+          <Flex mt="1" justifyContent="center" alignContent="center">
+            <Truncate fontWeight="bold" fontSize={"14px"}>
               {name}
-            </Box>
+            </Truncate>
           </Flex>
 
-          <p>{details}</p>
+          <Truncate>{details}</Truncate>
           <Box alignContent="center">
-            <Box fontSize="2xl" color={useColorModeValue("gray.800", "white")}>
-              <Box as="span" color={"gray.600"} fontSize="lg">
+            <Box fontSize="14px" color={useColorModeValue("gray.800", "white")}>
+              <Box as="span" color={"gray.600"} fontSize="14px">
                 $
               </Box>
               {price}
