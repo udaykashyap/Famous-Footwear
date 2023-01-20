@@ -18,7 +18,7 @@ const Women = () => {
   // const [page, setPage] = React.useState(1);
 
   const getdata = async () => {
-    const response = await fetch(`http://localhost:8080/mens`);
+    const response = await fetch(`http://localhost:8080/womens`);
     const res = await response.json();
     setData(res);
   };
@@ -87,9 +87,9 @@ const Women = () => {
               <Box key={el.id}>
                 <ShopBootSaleCard
                   isNew={true}
-                  name={el.brand}
+                  name={el.pname}
                   imageURL={el.image}
-                  price={el.price}
+                  price={el.pprice}
                   rating={el.rating}
                   numReviews={"37"}
                   details={el.desc}

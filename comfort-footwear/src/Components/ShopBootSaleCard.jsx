@@ -5,6 +5,7 @@ import {
   Image,
   Badge,
   useColorModeValue,
+  Text,
 } from "@chakra-ui/react";
 import { Truncate } from "@primer/react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
@@ -116,13 +117,24 @@ function ShopBootSaleCard({
               </Badge>
             )}
           </Box>
-          <Flex mt="1" justifyContent="center" alignContent="center">
-            <Truncate fontWeight="bold" fontSize={"14px"}>
-              {name}
-            </Truncate>
+          <Flex
+            fontWeight={"500"}
+            mt="1"
+            justifyContent="center"
+            alignContent="center"
+          >
+            <Truncate>{name}</Truncate>
           </Flex>
 
-          <Truncate>{details}</Truncate>
+          <Text
+            // border="1px solid red"
+            // display={"flex"}
+            // justifyContent="center"
+            width={"100%"}
+            margin="0 auto"
+          >
+            <Truncate>{details}</Truncate>
+          </Text>
           <Box alignContent="center">
             <Box fontSize="14px" color={useColorModeValue("gray.800", "white")}>
               <Box as="span" color={"gray.600"} fontSize="14px">
