@@ -14,6 +14,7 @@ import {
 // check
 
 import { Link as RouterLink } from "react-router-dom";
+import { color } from "styled-system";
 
 const Kids = () => {
   const [data, setData] = React.useState([]);
@@ -65,7 +66,7 @@ const Kids = () => {
       </Box>
       <Box
         width={{ base: "100%", md: "80%" }}
-        border="1px solid red"
+        border="0px solid red"
         display={"flex"}
         margin="auto"
       >
@@ -78,7 +79,7 @@ const Kids = () => {
         </Box>
         <Box
           width={{ base: "100%", md: "80%" }}
-          borderLeft="1px solid black"
+          borderLeft="0px solid black"
           padding={"20px"}
         >
           <Box
@@ -102,7 +103,54 @@ const Kids = () => {
           </Box>
         </Box>
       </Box>
-      <Box></Box>
+      {/* ..............................................Paginatino................................................ */}
+      <Box
+        display={{ base: "none", md: "flex" }}
+        justifyContent="space-evenly"
+        margin={"auto"}
+        width="20%"
+      >
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ color: "white", bgColor: "black" }}
+        >
+          1
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ color: "white", bgColor: "black" }}
+        >
+          2
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ color: "white", bgColor: "black" }}
+        >
+          3
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ bgColor: "black" }}
+        >
+          4
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          bgColor="black"
+          color={"white"}
+          _hover={{
+            bgColor: "gray.200",
+            color: "black",
+          }}
+        >
+          Next
+        </Button>
+      </Box>
+      {/* ....................................................Product end here.................................................. */}
       <>
         <Box>
           <Heading
