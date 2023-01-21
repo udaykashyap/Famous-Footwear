@@ -100,7 +100,54 @@ const Women = () => {
           </Box>
         </Box>
       </Box>
-      <Box></Box>
+      {/* ..............................................Paginatino................................................ */}
+      <Box
+        display={{ base: "none", md: "flex" }}
+        justifyContent="space-evenly"
+        margin={"auto"}
+        width="20%"
+      >
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ color: "white", bgColor: "black" }}
+        >
+          1
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ color: "white", bgColor: "black" }}
+        >
+          2
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ color: "white", bgColor: "black" }}
+        >
+          3
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          border="1px solid black"
+          _hover={{ bgColor: "black" }}
+        >
+          4
+        </Button>
+        <Button
+          borderRadius={"0px"}
+          bgColor="black"
+          color={"white"}
+          _hover={{
+            bgColor: "gray.200",
+            color: "black",
+          }}
+        >
+          Next
+        </Button>
+      </Box>
+      {/* ....................................................Product end here.................................................. */}
       <>
         <Box>
           <Heading
