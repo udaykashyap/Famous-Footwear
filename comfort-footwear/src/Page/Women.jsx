@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Box, Image, Text, Button } from "@chakra-ui/react";
 import ShopBootSaleCard from "../Components/ShopBootSaleCard";
+import { Link } from "react-router-dom";
 
 // ..............................................................
 
@@ -44,7 +45,10 @@ const Women = () => {
         </Box>
         <Box textAlign={"left"}>
           <Text>Free Shipping for Rewards or Orders $75+</Text>
-          <Text fontWeight={500}>Sign In / Join Now</Text>
+          <Link to={"/login"}>
+            {" "}
+            <Text fontWeight={500}>Sign In / Join Now</Text>
+          </Link>
         </Box>
       </Box>
       <Box
@@ -63,7 +67,7 @@ const Women = () => {
       </Box>
       <Box
         width={{ base: "100%", md: "80%" }}
-        border="1px solid red"
+        border="0px solid red"
         display={"flex"}
         margin="auto"
       >
@@ -76,7 +80,7 @@ const Women = () => {
         </Box>
         <Box
           width={{ base: "100%", md: "80%" }}
-          borderLeft="1px solid black"
+          borderLeft="0px solid black"
           padding={"20px"}
         >
           <Box
@@ -85,16 +89,19 @@ const Women = () => {
           >
             {data.map((el) => (
               <Box key={el.id}>
-                <ShopBootSaleCard
-                  isNew={true}
-                  name={el.pname}
-                  imageURL={el.image}
-                  price={el.pprice}
-                  rating={el.rating}
-                  numReviews={"37"}
-                  details={el.desc}
-                  sale={"Sale"}
-                />
+                <Link to={`/women/${el.id}`}>
+                  {" "}
+                  <ShopBootSaleCard
+                    isNew={true}
+                    name={el.pname}
+                    imageURL={el.image}
+                    price={el.pprice}
+                    rating={el.rating}
+                    numReviews={"37"}
+                    details={el.desc}
+                    sale={"Sale"}
+                  />
+                </Link>
               </Box>
             ))}
           </Box>
