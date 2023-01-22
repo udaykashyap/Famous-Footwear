@@ -63,20 +63,20 @@ const Men = () => {
       </Box>
       <Box
         width={{ base: "100%", md: "80%" }}
-        border="1px solid red"
+        border="0px solid red"
         display={"flex"}
         margin="auto"
       >
         <Box
           width={{ base: "0", md: "20%" }}
-          border="0px solid green"
+          // border="0px solid green"
           display={{ base: "none", md: "flex" }}
         >
           Sidebar
         </Box>
         <Box
           width={{ base: "100%", md: "80%" }}
-          borderLeft="1px solid black"
+          // borderLeft="1px solid black"
           padding={"20px"}
         >
           <Box
@@ -85,16 +85,18 @@ const Men = () => {
           >
             {data.map((el) => (
               <Box key={el.id}>
-                <ShopBootSaleCard
-                  isNew={true}
-                  name={el.brand}
-                  imageURL={el.image}
-                  price={el.price}
-                  rating={el.rating}
-                  numReviews={"37"}
-                  details={el.desc}
-                  sale={"Sale"}
-                />
+                <RouterLink to={`/men/${el.id}`}>
+                  <ShopBootSaleCard
+                    isNew={true}
+                    name={el.brand}
+                    imageURL={el.image}
+                    price={el.price}
+                    rating={el.rating}
+                    numReviews={"37"}
+                    details={el.desc}
+                    sale={"Sale"}
+                  />
+                </RouterLink>
               </Box>
             ))}
           </Box>
