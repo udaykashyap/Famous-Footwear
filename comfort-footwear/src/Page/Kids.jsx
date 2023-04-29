@@ -21,7 +21,7 @@ const Kids = () => {
   // const [page, setPage] = React.useState(1);
 
   const getdata = async () => {
-    const response = await fetch(`http://localhost:8080/kids`);
+    const response = await fetch(`https://mock-server-d4bb.onrender.com/kids`);
     const res = await response.json();
     setData(res);
   };

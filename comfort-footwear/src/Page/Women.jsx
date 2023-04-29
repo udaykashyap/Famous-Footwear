@@ -19,7 +19,7 @@ const Women = () => {
   // const [page, setPage] = React.useState(1);
 
   const getdata = async () => {
-    const response = await fetch(`http://localhost:8080/womens`);
+    const response = await fetch(`https://mock-server-d4bb.onrender.com/womens`);
     const res = await response.json();
     setData(res);
   };
