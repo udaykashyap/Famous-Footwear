@@ -18,15 +18,20 @@ import {
 } from "@chakra-ui/react";
 
 import { MdLocalShipping } from "react-icons/md";
+import { useToast } from "@chakra-ui/react";
 
 const SinglePageMen = () => {
   const [data, setData] = useState([]);
   const getData = async (id) => {
-    const res = await fetch(`http://localhost:8080/mens/${id}`);
+    const res = await fetch(`https://mock-server-d4bb.onrender.com/mens/${id}`);
     const resData = await res.json();
     setData(resData);
   };
   const params = useParams();
+  const handleCart = () => {
+    console.log("added");
+  };
+
   useEffect(() => {
     getData(params.men_id);
   }, [params.men_id]);
@@ -268,6 +273,9 @@ const SinglePageMen = () => {
               transform: "translateY(2px)",
               boxShadow: "lg",
             }}
+            onClick={() => {
+              handleCart();
+            }}
           >
             Add to cart
           </Button>
@@ -283,3 +291,22 @@ const SinglePageMen = () => {
 };
 
 export default SinglePageMen;
+
+function ToastExample() {
+  const toast = useToast();
+  return (
+    <Button
+      onClick={() =>
+        toast({
+          title: "Account created.",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 9000,
+          isClosable: true,
+        })
+      }
+    >
+      Add to cart
+    </Button>
+  );
+}

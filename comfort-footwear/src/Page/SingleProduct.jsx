@@ -22,7 +22,7 @@ import { MdLocalShipping } from "react-icons/md";
 const SingleProduct = () => {
   const [data, setData] = useState([]);
   const getData = async (id) => {
-    const res = await fetch(`http://localhost:8080/womens/${id}`);
+    const res = await fetch(`https://mock-server-d4bb.onrender.com/womens/${id}`);
     const resData = await res.json();
     setData(resData);
   };
