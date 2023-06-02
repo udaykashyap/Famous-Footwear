@@ -12,6 +12,7 @@ import {
 import ShopBootSaleCard from "./ShopBootSaleCard";
 import REWARDS from "./REWARDS.png";
 import { Link as RouterLink } from "react-router-dom";
+import Footer from "./Footer";
 
 const brandImges = [
   "https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/tests/hp-bts-redesign/brands/hp_logo_nike.png",
@@ -953,6 +954,7 @@ const LandingPage = () => {
           </Box>
         </Box>
       </Box>
+      <Footer />
     </div>
   );
 };

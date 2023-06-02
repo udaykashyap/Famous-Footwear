@@ -91,7 +91,7 @@ export default function Navbar() {
           padding={{ base: 0, md: "20px" }}
           // border={"1px solid red"}
         >
-          <PasswordInput />
+          {/* <PasswordInput /> */}
           <Button
             display={{ base: "none", md: "inline-flex" }}
             fontSize={"sm"}
@@ -100,7 +100,7 @@ export default function Navbar() {
             // bg={"pink.400"}
             href={"#"}
           >
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
           </Button>
           <Button
             as={"a"}
@@ -109,7 +109,7 @@ export default function Navbar() {
             variant={"link"}
             href={"#"}
           >
-            <i class="fa-solid fa-bag-shopping"></i>
+            <i className="fa-solid fa-bag-shopping"></i>
           </Button>
         </Stack>
       </Flex>
@@ -141,10 +141,10 @@ const DesktopNav = () => {
                 color={linkColor}
                 //marginTop="60px"
 
-                _hover={{
-                  textDecoration: "none",
-                  color: linkHoverColor,
-                }}
+                // _hover={{
+                //   textDecoration: "none",
+                //   color: linkHoverColor,
+                // }}
               >
                 {navItem.label}
               </RouterLink>
@@ -302,98 +302,25 @@ const NAV_ITEMS = [
   {
     label: "Women",
     path: "/women",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
   },
   {
     label: "Men",
     path: "/men",
-
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
   },
   {
     label: "Kids",
     path: "/kids",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
   },
   {
     label: "Brands",
     path: "/brands",
-    children: [
-      {
-        label: "Job Board",
-        subLabel: "Find your dream design job",
-        href: "#",
-      },
-      {
-        label: "Freelance Projects",
-        subLabel: "An exclusive list for contract work",
-        href: "#",
-      },
-    ],
   },
   {
     label: "Accessories",
     path: "/accessories",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
   },
   {
     label: "Sale",
     path: "/sale",
-    children: [
-      {
-        label: "Explore Design Work",
-        subLabel: "Trending Design to inspire you",
-        href: "#",
-      },
-      {
-        label: "New & Noteworthy",
-        subLabel: "Up-and-coming Designers",
-        href: "#",
-      },
-    ],
   },
 ];

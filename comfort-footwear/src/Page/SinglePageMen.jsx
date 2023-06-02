@@ -18,7 +18,8 @@ import {
 } from "@chakra-ui/react";
 
 import { MdLocalShipping } from "react-icons/md";
-import { useToast } from "@chakra-ui/react";
+
+import { toast, ToastContainer } from "react-toastify";
 
 const SinglePageMen = () => {
   const [data, setData] = useState([]);
@@ -30,6 +31,7 @@ const SinglePageMen = () => {
   const params = useParams();
   const handleCart = () => {
     console.log("added");
+    toast.success("Added successful!");
   };
 
   useEffect(() => {
@@ -38,6 +40,7 @@ const SinglePageMen = () => {
 
   return (
     <Container maxW={"7xl"}>
+     
       <SimpleGrid
         columns={{ base: 1, lg: 2 }}
         spacing={{ base: 8, md: 10 }}
@@ -285,28 +288,10 @@ const SinglePageMen = () => {
             <Text>2-3 business days delivery</Text>
           </Stack>
         </Stack>
+        
       </SimpleGrid>
     </Container>
   );
 };
 
 export default SinglePageMen;
-
-function ToastExample() {
-  const toast = useToast();
-  return (
-    <Button
-      onClick={() =>
-        toast({
-          title: "Account created.",
-          description: "We've created your account for you.",
-          status: "success",
-          duration: 9000,
-          isClosable: true,
-        })
-      }
-    >
-      Add to cart
-    </Button>
-  );
-}

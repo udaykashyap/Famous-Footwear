@@ -6,8 +6,11 @@ import {
   Badge,
   useColorModeValue,
   Text,
+  Input,
+  Button,
 } from "@chakra-ui/react";
 import { Truncate } from "@primer/react";
+import { useState } from "react";
 import { BsStar, BsStarFill, BsStarHalf } from "react-icons/bs";
 
 // const data = {
@@ -68,7 +71,7 @@ function ShopBootSaleCard({
   sale,
 }) {
   return (
-    <Flex
+    <Box
       w="full"
       alignItems="center"
       justifyContent="center"
@@ -86,7 +89,7 @@ function ShopBootSaleCard({
         {isNew && (
           <Circle
             size="10px"
-            position="absolute"
+            // position="absolute"
             top={2}
             right={2}
             bg="red.200"
@@ -117,14 +120,14 @@ function ShopBootSaleCard({
               </Badge>
             )}
           </Box>
-          <Flex
+          <Box
             fontWeight={"500"}
             mt="1"
             justifyContent="center"
             alignContent="center"
           >
-            <Truncate>{name}</Truncate>
-          </Flex>
+            <Text>{name}</Text>
+          </Box>
 
           <Text
             // border="1px solid red"
@@ -147,8 +150,57 @@ function ShopBootSaleCard({
           </Box>
         </Box>
       </Box>
-    </Flex>
+    </Box>
   );
 }
 
 export default ShopBootSaleCard;
+
+// const ShopBootSaleCard = ({
+//   isNew,
+//   name,
+//   imageURL,
+//   price,
+//   rating,
+//   numReviews,
+//   details,
+//   sale,
+// }) => {
+//   const [count, setCount] = useState(1);
+//   return (
+//     <Box
+//       w="full"
+//       border="1px solid red"
+//       display={"flex"}
+//       justifyContent={"space-between"}
+//       alignItems="center"
+//       margin="10px 0px 10px "
+//     >
+//       <Image src={imageURL} width="100px" height={"100px"} />
+//       <Text>{name}</Text>
+//       <Text w="30%">{details}</Text>
+//       <Text>{numReviews}</Text>
+//       <Text>{price}</Text>
+//       <Box display={"flex"}>
+//         <Input
+//           w="100%"
+//           // value={count}
+//           color="green"
+//           padding="0"
+//           textAlign="center"
+//         />
+//         <Button onClick={() => setCount((prev) => prev + 1)}>+</Button>
+//         <Button
+//           isDisabled={count < 2}
+//           onClick={() => setCount((prev) => prev - 1)}
+//         >
+//           -
+//         </Button>
+//       </Box>
+//       <Button>Add to Cart</Button>
+//       <input type="checkbox" />
+//     </Box>
+//   );
+// };
+
+// export default ShopBootSaleCard;

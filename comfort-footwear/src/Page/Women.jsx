@@ -1,31 +1,138 @@
-import React, { useEffect } from "react";
-import { Box, Image, Text, Button } from "@chakra-ui/react";
-import ShopBootSaleCard from "../Components/ShopBootSaleCard";
+import React, { useEffect, useState } from "react";
+import {
+  Box,
+  Text,
+  Button,
+  Table,
+  Thead,
+  Tr,
+  Th,
+  Tbody,
+  Td,
+  Input,
+} from "@chakra-ui/react";
+
 import { Link } from "react-router-dom";
+import { Select } from "@chakra-ui/react";
 
 // ..............................................................
 
-import {
-  Heading,
-  InputGroup,
-  Input,
-  InputRightElement,
-} from "@chakra-ui/react";
-
-import { Link as RouterLink } from "react-router-dom";
+import CardForWomen from "../Components/CardForWomen";
 
 const Women = () => {
-  const [data, setData] = React.useState([]);
-  // const [page, setPage] = React.useState(1);
+  const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [cart, setCart] = useState([]);
+  // console.log(cart.length);
 
+  //getting add data from API
   const getdata = async () => {
-    const response = await fetch(`https://mock-server-d4bb.onrender.com/womens`);
-    const res = await response.json();
-    setData(res);
+    try {
+      const response = await fetch(
+        `https://mock-server-d4bb.onrender.com/woman?_page=${page}&_limit=20`
+      );
+      const res = await response.json();
+      setData((prev) => [...prev, ...res]);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  //handling scroll
+  const handleScroll = async () => {
+    // console.log(document.documentElement.scrollHeight);
+    // console.log(document.documentElement.scrollTop);
+    // console.log(window.innerHeight);
+    try {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 5 >=
+        document.documentElement.scrollHeight
+      ) {
+        setPage((prev) => prev + 1);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  //handle Search
+  const handleSearch = async (e) => {
+    let q = e.target.value;
+    try {
+      let response = await fetch(
+        `https://mock-server-d4bb.onrender.com/woman?q=${q}`
+      );
+      let sdata = await response.json();
+      console.log(sdata);
+      setData(sdata);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  // ..............................................................
+  // handle Filter
+  const handleCatagories = async (e) => {
+    // setCatagory(e.target.value);
+    try {
+      const res = await fetch(
+        `https://mock-server-d4bb.onrender.com/woman?catagories=${e.target.value}`
+      );
+      const dataa = await res.json();
+      setData(dataa);
+      console.log(dataa);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleColor = async (e) => {
+    // setColor(e.target.value);
+    try {
+      const res = await fetch(
+        `https://mock-server-d4bb.onrender.com/woman?color=${e.target.value}`
+      );
+      const dataa = await res.json();
+      setData(dataa);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleSize = async (e) => {
+    // setSize(e.target.value);
+    const res = await fetch(
+      `https://mock-server-d4bb.onrender.com/woman?size=${e.target.value}`
+    );
+    const dataa = await res.json();
+    setData(dataa);
+  };
+  // ..............................................................
+
+  // ..............................................................
+  //handle Cart
+  const handleCart = (value) => {
+    if (cart.length < 1) {
+      alert("No Data Selected");
+    } else {
+      alert(cart.length + "data is added");
+      console.log(cart);
+    }
+  };
+
+  const handleCartData = (val) => {
+    setCart([...cart, val]);
+  };
+  // ..............................................................
+  // Rest Button
+  const reset = () => {
+    getdata();
   };
 
   useEffect(() => {
     getdata();
+  }, [page]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -65,264 +172,94 @@ const Women = () => {
         <Text>Buy one, get one 50% Off Boots</Text>
         <Text>Exclusions apply.</Text>
       </Box>
+
+      {/* filter is here */}
+      <Box
+        width={"80%"}
+        margin={"auto"}
+        display={"flex"}
+        alignItems={"center"}
+        gap={"20px"}
+      >
+        <Text>Filter</Text>
+        <Select
+          placeholder="Catagories"
+          onChange={(e) => {
+            handleCatagories(e);
+          }}
+        >
+          <option value="Boot">Boot</option>
+          <option value="Shoe">Shoe</option>
+          <option value="Sandle">Sandal</option>
+        </Select>
+        <Select
+          placeholder="Color"
+          onChange={(e) => {
+            handleColor(e);
+          }}
+        >
+          <option value="black">Black</option>
+          <option value="brown">Brown</option>
+          <option value="blue">Blue</option>
+        </Select>
+        <Select
+          placeholder="Size"
+          onChange={(e) => {
+            handleSize(e);
+          }}
+        >
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+        </Select>
+        <Button onClick={reset}>↻</Button>
+        <Input
+          border={"2px solid black"}
+          borderRadius={"0px"}
+          placeholder="Search Product"
+          onChange={(e) => {
+            handleSearch(e);
+          }}
+        />
+      </Box>
       <Box
         width={{ base: "100%", md: "80%" }}
         border="0px solid red"
         display={"flex"}
         margin="auto"
       >
-        <Box
-          width={{ base: "0", md: "20%" }}
-          border="0px solid green"
-          display={{ base: "none", md: "flex" }}
-        >
-          Sidebar
-        </Box>
-        <Box
-          width={{ base: "100%", md: "80%" }}
-          borderLeft="0px solid black"
-          padding={"20px"}
-        >
-          <Box
-            display={"grid"}
-            gridTemplateColumns={{ base: "repeat(2,1fr)", md: "repeat(4,1fr)" }}
-          >
-            {data.map((el) => (
-              <Box key={el.id}>
-                <Link to={`/women/${el.id}`}>
-                  {" "}
-                  <ShopBootSaleCard
-                    isNew={true}
-                    name={el.pname}
-                    imageURL={el.image}
-                    price={el.pprice}
-                    rating={el.rating}
-                    numReviews={"37"}
-                    details={el.desc}
-                    sale={"Sale"}
-                  />
-                </Link>
-              </Box>
-            ))}
-          </Box>
-        </Box>
-      </Box>
-      {/* ..............................................Paginatino................................................ */}
-      <Box
-        display={{ base: "none", md: "flex" }}
-        justifyContent="space-evenly"
-        margin={"auto"}
-        width="20%"
-      >
-        <Button
-          borderRadius={"0px"}
-          border="1px solid black"
-          _hover={{ color: "white", bgColor: "black" }}
-        >
-          1
-        </Button>
-        <Button
-          borderRadius={"0px"}
-          border="1px solid black"
-          _hover={{ color: "white", bgColor: "black" }}
-        >
-          2
-        </Button>
-        <Button
-          borderRadius={"0px"}
-          border="1px solid black"
-          _hover={{ color: "white", bgColor: "black" }}
-        >
-          3
-        </Button>
-        <Button
-          borderRadius={"0px"}
-          border="1px solid black"
-          _hover={{ bgColor: "black" }}
-        >
-          4
-        </Button>
-        <Button
-          borderRadius={"0px"}
-          bgColor="black"
-          color={"white"}
-          _hover={{
-            bgColor: "gray.200",
-            color: "black",
-          }}
-        >
-          Next
-        </Button>
-      </Box>
-      {/* ....................................................Product end here.................................................. */}
-      <>
-        <Box>
-          <Heading
-            margin={"auto"}
-            marginTop="4%"
-            fontFamily="sans-serif"
-            fontWeight="600"
-            fontSize="16px"
-            borderBottom={"3px solid black"}
-            paddingBottom="5px"
-            width="200px"
-            mb={"3%"}
-          >
-            GET MORE FRESH INSPO
-          </Heading>
-
-          <hr style={{ width: "80%", margin: "auto" }} />
-          <br />
-          <br />
-          <Heading
-            margin={"auto"}
-            marginTop="2%"
-            fontFamily="sans-serif"
-            fontWeight="600"
-            fontSize="22px"
-            //   borderBottom={"3px solid black"}
-            paddingBottom="5px"
-            width="280px"
-            mb={"3%"}
-          >
-            Shop for:
-          </Heading>
-          <Box
-            width={"20%"}
-            margin="auto"
-            // border={"1px solid red"}
-            display="flex"
-            justifyContent={"space-evenly"}
-          >
-            <Text borderBottom={"3px solid black"}>
-              <RouterLink>WOMEN</RouterLink>
-            </Text>
-            <Text borderBottom={"3px solid black"}>
-              <RouterLink>MEN</RouterLink>
-            </Text>
-            <Text borderBottom={"3px solid black"}>
-              <RouterLink>KIDS</RouterLink>
-            </Text>
-            <Text borderBottom={"3px solid black"}>
-              <RouterLink>SALES</RouterLink>
-            </Text>
-          </Box>
-          <br />
-          <br />
-
-          <Box color={"#333f48"}>
-            <Heading
-              margin={"auto"}
-              marginTop="2%"
-              fontFamily="sans-serif"
-              fontWeight="600"
-              fontSize="22px"
-              //   borderBottom={"3px solid black"}
-              paddingBottom="5px"
-              mb={"3%"}
-            >
-              Find Your Next Pair of Shoes at Comfort Footwear
-            </Heading>
-
-            <InputGroup width={{ base: "100%", md: "30%" }} margin="auto">
-              <Input
-                borderRadius={"0px"}
-                border="2px solid #333f48"
-                placeholder="Email"
-              />
-              <InputRightElement width={"70px"}>
-                <Button bgColor="#333f48" color="white" borderRadius={"0px"}>
-                  SignUp
-                </Button>
-              </InputRightElement>
-            </InputGroup>
-          </Box>
-        </Box>
-        <br />
-        <br />
-        <hr />
-      </>
-      <Box
-        display={{ base: "grid", xl: "flex" }}
-        width={{ base: "100%", xl: "80%" }}
-        margin="auto"
-        padding="20px"
-        fontSize={{ base: "12px", md: "14px" }}
-      >
-        <Box
-          display={"flex"}
-          height="100px"
-          justifyContent="center"
-          alignItems="center"
-          borderRight={{ base: "none", md: "1px solid #333f48" }}
-          padding="10px"
-        >
-          <Image
-            width={{ base: "30px", xl: "50px" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/rewards-images/rewards-refresh-2022/secondary-footer/free_shipping.svg"
-            alt="#"
-          />
+        <Box border="0px solid black" padding={"20px"} margin={"auto"}>
           <Box>
-            <Text>Free Shipping for Members</Text>
-            <Text>Plus, return your purchase to any store, at any time.</Text>
+            <Table>
+              <Thead>
+                <Tr>
+                  <Th>Name</Th>
+                  <Th>Description</Th>
+                  <Th>Review</Th>
+                  <Th>Size</Th>
+                  <Th>Color</Th>
+                  <Th>Price</Th>
+                  <Th>Buy</Th>
+                </Tr>
+              </Thead>
+              <Tbody>
+                {data.map((el) => (
+                  <CardForWomen handleCartData={handleCartData} {...el} />
+                ))}
+              </Tbody>
+            </Table>
           </Box>
-        </Box>
-        <hr />
-        <Box
-          display={"flex"}
-          height="100px"
-          justifyContent="center"
-          alignItems="center"
-          borderRight={{ base: "none", md: "1px solid #333f48" }}
-          padding="10px"
-        >
-          <Image
-            width={{ base: "30px", xl: "50px" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/footer/gift-card.svg"
-            alt="#"
-          />
-          <Box>
-            <Text>Free Shipping for Members</Text>
-            <Text>Plus, return your purchase to any store, at any time.</Text>
-          </Box>
-        </Box>
-        <hr />
-        <Box
-          display={"flex"}
-          height="100px"
-          justifyContent="center"
-          alignItems="center"
-          borderRight={{ base: "none", md: "1px solid #333f48" }}
-          padding="10px"
-        >
-          <Image
-            width={{ base: "30px", xl: "50px" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/footer/ff-pickup.svg"
-            alt="#"
-          />
-          <Box>
-            <Text>Free Shipping for Members</Text>
-            <Text>Plus, return your purchase to any store, at any time.</Text>
-          </Box>
-        </Box>
-        <hr />
-
-        <Box
-          display={"flex"}
-          height="100px"
-          justifyContent="center"
-          alignItems="center"
-          padding="10px"
-        >
-          <Image
-            width={{ base: "30px", xl: "50px" }}
-            src="https://www.famousfootwear.com/-/media/project/tenant/famous-footwear/famous-footwear/footer/zip.svg"
-            alt="#"
-          />
-          <Box>
-            <Text>Free Shipping for Members</Text>
-            <Text>Plus, return your purchase to any store, at any time.</Text>
-          </Box>
+          <Button
+            onClick={handleCart}
+            bgColor={"blue.500"}
+            color={"white"}
+            _hover={{ bgColor: "blue.500", color: "white" }}
+          >
+            Add Selected to Cart
+          </Button>
+          {/* <Box height="50px" margin={"8%"}>
+            Thanks For Visit...
+          </Box> */}
         </Box>
       </Box>
     </Box>
